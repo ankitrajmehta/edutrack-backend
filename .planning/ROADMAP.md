@@ -27,6 +27,14 @@
 
 **Requirements:** INFRA-01, INFRA-02, INFRA-03, INFRA-04, INFRA-05, AUTH-01, AUTH-02, AUTH-03, AUTH-04, AUTH-05, AUTH-06, RBAC-01, BLKC-01, BLKC-02, BLKC-03, BLKC-04
 
+**Plans:** 4 plans
+
+Plans:
+- [ ] 01-01-PLAN.md — Project scaffolding, Docker Compose, config, exceptions, all stub routers
+- [ ] 01-02-PLAN.md — Async DB setup, all 12 ORM models, Alembic async migrations
+- [ ] 01-03-PLAN.md — BlockchainService Protocol, MockSuiService, get_blockchain() DI
+- [ ] 01-04-PLAN.md — Pydantic schemas (camelCase), JWT security, auth service, auth endpoints, RBAC guard
+
 ### Success Criteria
 1. `docker compose up` starts the application and PostgreSQL with no manual intervention; `GET /healthz` returns HTTP 200.
 2. `POST /api/auth/register` creates a user and `POST /api/auth/login` returns a valid JWT access token (30 min) and refresh token (7 days).
@@ -119,7 +127,7 @@
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 0/? | Not Started | — |
+| 1. Foundation | 0/4 | Not Started | — |
 | 2. Entity Management | 0/? | Not Started | — |
 | 3. Fund Flow | 0/? | Not Started | — |
 | 4. Demo Readiness | 0/? | Not Started | — |
