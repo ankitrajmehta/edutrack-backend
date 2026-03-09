@@ -10,6 +10,7 @@ from app.models.school import School, SchoolStatus  # noqa: F401
 from app.models.application import ScholarshipApplication, ApplicationStatus  # noqa: F401
 from app.models.activity_log import ActivityLog, ActivityType  # noqa: F401
 from app.models.file_record import FileRecord  # noqa: F401
+from app.models.allocation import Allocation  # noqa: F401
 
 __all__ = [
     "User",
@@ -33,4 +34,5 @@ __all__ = [
     "ActivityLog",
     "ActivityType",
     "FileRecord",
+    "Allocation",
 ]
