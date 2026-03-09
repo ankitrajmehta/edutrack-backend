@@ -50,8 +50,8 @@
 - [x] **NGO-07**: NGO can accept an application (auto-creates student record) or reject it with a reason
 - [ ] **NGO-08**: NGO can list invoices submitted by schools for their programs
 - [ ] **NGO-09**: NGO can approve an invoice (triggers blockchain settlement tx, sets tx_hash) or reject it
-- [ ] **NGO-10**: NGO can allocate funds to a student or program (triggers blockchain allocation tx, sets tx_hash)
-- [ ] **NGO-11**: NGO can view allocation history
+- [x] **NGO-10**: NGO can allocate funds to a student or program (triggers blockchain allocation tx, sets tx_hash)
+- [x] **NGO-11**: NGO can view allocation history
 
 ### Donor
 

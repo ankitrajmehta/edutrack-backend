@@ -12,7 +12,7 @@
 |---|-------|------|--------------|-------|
 | 1 | Foundation | Working authenticated API skeleton in Docker | INFRA-01–05, AUTH-01–06, RBAC-01, BLKC-01–04 | 4 plans |
 | 2 | 5/5 | Complete   | 2026-03-09 | 5 plans |
-| 3 | Fund Flow | Every money movement triggers a blockchain tx with a recorded hash | NGO-08–11, DONOR-04–06, SCHL-03–04 | TBD |
+| 3 | Fund Flow | Every money movement triggers a blockchain tx with a recorded hash | NGO-08–11, DONOR-04–06, SCHL-03–04 | 1/4 |
 | 4 | Demo Readiness | Frontend runs against live API with no mock data, Move contract deployable | INFRA-06, PUBL-01–04, BLKC-05, ACTV-02, APIC-03 | TBD |
 
 ---
@@ -65,11 +65,11 @@ Plans:
 **Plans:** 5/5 plans complete
 
 Plans:
-- [ ] 02-01-PLAN.md — activity_service.log() + Alembic migration 0002 (color, rejection_reason, submitted_by_user_id)
-- [ ] 02-02-PLAN.md — Admin service + routes (9 endpoints: dashboard, NGO management, blacklist)
-- [ ] 02-03-PLAN.md — NGO service + routes (11 endpoints: programs CRUD, student registration, applications)
-- [ ] 02-04-PLAN.md — Donor + School + Student services + routes (8 endpoints total)
-- [ ] 02-05-PLAN.md — File service + routes (upload/download with aiofiles)
+- [x] 02-01-PLAN.md — activity_service.log() + Alembic migration 0002 (color, rejection_reason, submitted_by_user_id)
+- [x] 02-02-PLAN.md — Admin service + routes (9 endpoints: dashboard, NGO management, blacklist)
+- [x] 02-03-PLAN.md — NGO service + routes (11 endpoints: programs CRUD, student registration, applications)
+- [x] 02-04-PLAN.md — Donor + School + Student services + routes (8 endpoints total)
+- [x] 02-05-PLAN.md — File service + routes (upload/download with aiofiles)
 
 ### Success Criteria
 1. Admin can verify an NGO (`PATCH /api/admin/ngos/{id}/status`), which changes its status and writes an `ActivityLog` entry in the same database transaction.
@@ -95,10 +95,10 @@ Plans:
 
 **Requirements:** NGO-08, NGO-09, NGO-10, NGO-11, DONOR-04, DONOR-05, DONOR-06, SCHL-03, SCHL-04
 
-**Plans:** 4 plans
+**Plans:** 4/1 complete
 
 Plans:
-- [ ] 03-01-PLAN.md — Allocation model, schemas, migration 0003
+- [x] 03-01-PLAN.md — Allocation model, schemas, migration 0003
 - [ ] 03-02-PLAN.md — Donor service + routes (DONOR-04, DONOR-05, DONOR-06)
 - [ ] 03-03-PLAN.md — NGO invoice + allocation service + routes (NGO-08–11)
 - [ ] 03-04-PLAN.md — School invoice service + routes (SCHL-03, SCHL-04)
@@ -146,8 +146,8 @@ Plans:
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 4/4 | Complete | 2026-03-09 |
-| 2. Entity Management | 0/5 | Not Started | — |
-| 3. Fund Flow | 0/? | Not Started | — |
+| 2. Entity Management | 5/5 | Complete | 2026-03-09 |
+| 3. Fund Flow | 1/4 | In Progress | — |
 | 4. Demo Readiness | 0/? | Not Started | — |
 
 ---
