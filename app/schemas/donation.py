@@ -24,3 +24,32 @@ class DonationResponse(BaseResponse):
     type: str
     message: Optional[str] = None
     tx_hash: Optional[str] = Field(default=None, alias="txHash")
+
+
+class FundFlowAllocation(BaseResponse):
+    """Allocation summary embedded in donation fund-flow detail."""
+
+    id: int
+    student_id: Optional[int] = Field(default=None, alias="studentId")
+    program_id: Optional[int] = Field(default=None, alias="programId")
+    amount: float
+    tx_hash: Optional[str] = Field(default=None, alias="txHash")
+    date: datetime
+
+
+class FundFlowInvoice(BaseResponse):
+    """Invoice summary embedded in donation fund-flow detail."""
+
+    id: int
+    school_name: str = Field(alias="schoolName")
+    amount: float
+    status: str
+    tx_hash: Optional[str] = Field(default=None, alias="txHash")
+    approved_date: Optional[datetime] = Field(default=None, alias="approvedDate")
+
+
+class DonationDetailResponse(DonationResponse):
+    """Donation with complete fund-flow chain: donation → allocations → invoice settlements."""
+
+    allocations: list[FundFlowAllocation] = []
+    invoices: list[FundFlowInvoice] = []
