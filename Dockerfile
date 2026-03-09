@@ -13,11 +13,11 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Create upload directory
-RUN mkdir -p uploads && chown -R appuser:appuser /app
+RUN mkdir -p uploads scripts && chmod +x scripts/entrypoint.sh && chown -R appuser:appuser /app
 
 # Switch to non-root user
 USER appuser
 
 EXPOSE 8000
 
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["scripts/entrypoint.sh"]
