@@ -126,4 +126,16 @@ See: `.planning/PROJECT.md` (updated 2026-03-09)
 **Next action:** Plan Phase 3 (Fund Flow)
 
 ---
+
+### Quick Tasks Completed
+
+| # | Description | Date | Commit | Directory |
+|---|-------------|------|--------|-----------|
+| 1 | Fix UAT gaps from phase 02-entity-management | 2026-03-09 | 494eec8 | [1-fix-uat-gaps-from-phase-02-entity-manage](.planning/quick/1-fix-uat-gaps-from-phase-02-entity-manage/) |
+
+---
+
+Last activity: 2026-03-09 - Completed quick task 1: Fix UAT gaps from phase 02-entity-management
+
+---
 *State initialized: 2026-03-09*
