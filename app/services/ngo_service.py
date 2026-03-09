@@ -399,8 +399,8 @@ async def approve_invoice(
     )
     invoice.status = InvoiceStatus.approved
     invoice.tx_hash = tx.tx_hash
-    invoice.approved_date = datetime.now(timezone.utc)
-
+    invoice.approved_date = datetime.utcnow()
+    
     await activity_service.log(
         db,
         "invoice",
