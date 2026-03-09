@@ -3,19 +3,19 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-last_updated: "2026-03-09T18:29:00.000Z"
+last_updated: "2026-03-09T14:50:47.609Z"
 progress:
   total_phases: 4
-  completed_phases: 0
-  total_plans: 4
-  completed_plans: 3
-  percent: 75
+  completed_phases: 1
+  total_plans: 5
+  completed_plans: 5
+  percent: 100
 ---
 
 # Project State: EduTrack Backend
 
 **Initialized:** 2026-03-09
-**Status:** Ready to plan Phase 1
+**Status:** Ready to plan Phase 2
 
 ---
 
@@ -25,7 +25,7 @@ See: `.planning/PROJECT.md` (updated 2026-03-09)
 
 **Core value:** Every education fund allocation is transparently tracked and verifiably delivered, giving donors, NGOs, and the public an auditable record from donation to student wallet.
 
-**Current focus:** Phase 1 — Foundation
+**Current focus:** Phase 2 — Entity Management
 
 ---
 
@@ -33,7 +33,7 @@ See: `.planning/PROJECT.md` (updated 2026-03-09)
 
 | Phase | Name | Status | Plans |
 |-------|------|--------|-------|
-| 1 | Foundation | In Progress | 3/4 |
+| 1 | Foundation | Complete | 5/5 |
 | 2 | Entity Management | Not Started | 0/0 |
 | 3 | Fund Flow | Not Started | 0/0 |
 | 4 | Demo Readiness | Not Started | 0/0 |
@@ -43,9 +43,9 @@ See: `.planning/PROJECT.md` (updated 2026-03-09)
 ## Current Position
 
 **Phase:** 1 — Foundation
-**Plan:** 4 of 4 (01-04)
+**Plan:** 5 of 5 (01-05)
 **Status:** Completed
-**Progress:** ██████████ 100%
+**Progress:** [██████████] 100%
 
 ---
 
@@ -62,6 +62,7 @@ See: `.planning/PROJECT.md` (updated 2026-03-09)
 ---
 
 | Phase 01-foundation P04 | 88 min | 2 tasks | 8 files |
+| Phase 01-foundation P05 | 6min | 3 tasks | 4 files |
 
 ## Decisions Log
 
@@ -77,6 +78,9 @@ See: `.planning/PROJECT.md` (updated 2026-03-09)
 | 2026-03-09 | FastAPI app with CORS and exception handlers | Created in Plan 01-01 - all 8 routers registered under /api prefix |
 | 2026-03-09 | Pydantic BaseSettings for env management | All env vars loaded via app/core/config.py with safe defaults |
 | 2026-03-09 | Docker Compose with PostgreSQL healthcheck | App waits for DB to be healthy before starting |
+| 2026-03-09 | StarletteHTTPException handler after RequestValidationError in exception chain | Starlette's ExceptionMiddleware catches bare HTTP errors before our generic handler; dedicated handler required |
+| 2026-03-09 | Alembic enum types with create_type=False pattern | Enum types created once with .create(op.get_bind()), columns reference with create_type=False to avoid 'type already exists' |
+| 2026-03-09 | Docker entrypoint with exec uvicorn and set -e | set -e aborts if migrations fail; exec replaces shell for correct signal propagation to uvicorn |
 
 ---
 
@@ -105,8 +109,8 @@ See: `.planning/PROJECT.md` (updated 2026-03-09)
 
 ## Session Continuity
 
-**Last action:** Completed 01-04-PLAN.md - Auth & Schemas (2026-03-09)
-**Next action:** Phase 1 complete - ready for Phase 2 planning
+**Last action:** Completed 01-05-PLAN.md - Gap Closure (Exception Handler + Migration + Docker Entrypoint) (2026-03-09)
+**Next action:** Phase 1 complete - ready for Phase 2 Entity Management planning
 
 ---
 *State initialized: 2026-03-09*

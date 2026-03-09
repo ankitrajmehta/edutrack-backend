@@ -8,7 +8,7 @@
 ### Infrastructure
 
 - [x] **INFRA-01**: Project scaffolding exists (directory structure from prompt.md) with all packages installable via requirements.txt
-- [ ] **INFRA-02**: PostgreSQL connection works via async SQLAlchemy (asyncpg driver) with Alembic migrations (async template)
+- [x] **INFRA-02**: PostgreSQL connection works via async SQLAlchemy (asyncpg driver) with Alembic migrations (async template)
 - [x] **INFRA-03**: Docker Compose runs app + PostgreSQL with a single `docker compose up`
 - [x] **INFRA-04**: `.env` / `config.py` (Pydantic BaseSettings) loads all required environment variables
 - [x] **INFRA-05**: Global exception handler returns all errors as `{detail, code, statusCode}` JSON — no unhandled 500s leak stack traces to clients
@@ -16,8 +16,8 @@
 
 ### Authentication
 
-- [ ] **AUTH-01**: User can register with email, password, and role (ngo/donor/school/student)
-- [ ] **AUTH-02**: User can log in and receive a JWT access token (30min) and refresh token (7d)
+- [x] **AUTH-01**: User can register with email, password, and role (ngo/donor/school/student)
+- [x] **AUTH-02**: User can log in and receive a JWT access token (30min) and refresh token (7d)
 - [ ] **AUTH-03**: User can refresh their access token using a valid refresh token
 - [ ] **AUTH-04**: User can log out (refresh token invalidated)
 - [ ] **AUTH-05**: User can retrieve their own profile via `GET /api/auth/me` including role-specific data
