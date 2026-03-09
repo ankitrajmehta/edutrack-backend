@@ -151,77 +151,84 @@
 
 ## Traceability
 
-| Requirement | Phase | Status |
-|-------------|-------|--------|
-| INFRA-01 | Phase 1 | Pending |
-| INFRA-02 | Phase 1 | Pending |
-| INFRA-03 | Phase 1 | Pending |
-| INFRA-04 | Phase 1 | Pending |
-| INFRA-05 | Phase 1 | Pending |
-| INFRA-06 | Phase 4 | Pending |
-| AUTH-01 | Phase 1 | Pending |
-| AUTH-02 | Phase 1 | Pending |
-| AUTH-03 | Phase 1 | Pending |
-| AUTH-04 | Phase 1 | Pending |
-| AUTH-05 | Phase 1 | Pending |
-| AUTH-06 | Phase 1 | Pending |
-| RBAC-01 | Phase 1 | Pending |
-| RBAC-02 | Phase 2 | Pending |
-| RBAC-03 | Phase 2 | Pending |
-| RBAC-04 | Phase 2 | Pending |
-| RBAC-05 | Phase 2 | Pending |
-| ADMN-01 | Phase 2 | Pending |
-| ADMN-02 | Phase 2 | Pending |
-| ADMN-03 | Phase 2 | Pending |
-| ADMN-04 | Phase 2 | Pending |
-| ADMN-05 | Phase 2 | Pending |
-| NGO-01 | Phase 2 | Pending |
-| NGO-02 | Phase 2 | Pending |
-| NGO-03 | Phase 2 | Pending |
-| NGO-04 | Phase 2 | Pending |
-| NGO-05 | Phase 2 | Pending |
-| NGO-06 | Phase 2 | Pending |
-| NGO-07 | Phase 2 | Pending |
-| NGO-08 | Phase 3 | Pending |
-| NGO-09 | Phase 3 | Pending |
-| NGO-10 | Phase 3 | Pending |
-| NGO-11 | Phase 3 | Pending |
-| DONOR-01 | Phase 2 | Pending |
-| DONOR-02 | Phase 2 | Pending |
-| DONOR-03 | Phase 2 | Pending |
-| DONOR-04 | Phase 3 | Pending |
-| DONOR-05 | Phase 3 | Pending |
-| DONOR-06 | Phase 3 | Pending |
-| SCHL-01 | Phase 2 | Pending |
-| SCHL-02 | Phase 2 | Pending |
-| SCHL-03 | Phase 3 | Pending |
-| SCHL-04 | Phase 3 | Pending |
-| STUD-01 | Phase 2 | Pending |
-| STUD-02 | Phase 2 | Pending |
-| STUD-03 | Phase 2 | Pending |
-| PUBL-01 | Phase 4 | Pending |
-| PUBL-02 | Phase 4 | Pending |
-| PUBL-03 | Phase 4 | Pending |
-| PUBL-04 | Phase 4 | Pending |
-| BLKC-01 | Phase 1 | Pending |
-| BLKC-02 | Phase 1 | Pending |
-| BLKC-03 | Phase 1 | Pending |
-| BLKC-04 | Phase 1 | Pending |
-| BLKC-05 | Phase 4 | Pending |
-| ACTV-01 | Phase 2 | Pending |
-| ACTV-02 | Phase 4 | Pending |
-| FILE-01 | Phase 2 | Pending |
-| FILE-02 | Phase 2 | Pending |
-| FILE-03 | Phase 2 | Pending |
-| APIC-01 | Phase 2 | Pending |
-| APIC-02 | Phase 2 | Pending |
-| APIC-03 | Phase 4 | Pending |
+| Requirement | Phase | Phase Name | Status |
+|-------------|-------|------------|--------|
+| INFRA-01 | Phase 1 | Foundation | Pending |
+| INFRA-02 | Phase 1 | Foundation | Pending |
+| INFRA-03 | Phase 1 | Foundation | Pending |
+| INFRA-04 | Phase 1 | Foundation | Pending |
+| INFRA-05 | Phase 1 | Foundation | Pending |
+| INFRA-06 | Phase 4 | Demo Readiness | Pending |
+| AUTH-01 | Phase 1 | Foundation | Pending |
+| AUTH-02 | Phase 1 | Foundation | Pending |
+| AUTH-03 | Phase 1 | Foundation | Pending |
+| AUTH-04 | Phase 1 | Foundation | Pending |
+| AUTH-05 | Phase 1 | Foundation | Pending |
+| AUTH-06 | Phase 1 | Foundation | Pending |
+| RBAC-01 | Phase 1 | Foundation | Pending |
+| RBAC-02 | Phase 2 | Entity Management | Pending |
+| RBAC-03 | Phase 2 | Entity Management | Pending |
+| RBAC-04 | Phase 2 | Entity Management | Pending |
+| RBAC-05 | Phase 2 | Entity Management | Pending |
+| ADMN-01 | Phase 2 | Entity Management | Pending |
+| ADMN-02 | Phase 2 | Entity Management | Pending |
+| ADMN-03 | Phase 2 | Entity Management | Pending |
+| ADMN-04 | Phase 2 | Entity Management | Pending |
+| ADMN-05 | Phase 2 | Entity Management | Pending |
+| NGO-01 | Phase 2 | Entity Management | Pending |
+| NGO-02 | Phase 2 | Entity Management | Pending |
+| NGO-03 | Phase 2 | Entity Management | Pending |
+| NGO-04 | Phase 2 | Entity Management | Pending |
+| NGO-05 | Phase 2 | Entity Management | Pending |
+| NGO-06 | Phase 2 | Entity Management | Pending |
+| NGO-07 | Phase 2 | Entity Management | Pending |
+| NGO-08 | Phase 3 | Fund Flow | Pending |
+| NGO-09 | Phase 3 | Fund Flow | Pending |
+| NGO-10 | Phase 3 | Fund Flow | Pending |
+| NGO-11 | Phase 3 | Fund Flow | Pending |
+| DONOR-01 | Phase 2 | Entity Management | Pending |
+| DONOR-02 | Phase 2 | Entity Management | Pending |
+| DONOR-03 | Phase 2 | Entity Management | Pending |
+| DONOR-04 | Phase 3 | Fund Flow | Pending |
+| DONOR-05 | Phase 3 | Fund Flow | Pending |
+| DONOR-06 | Phase 3 | Fund Flow | Pending |
+| SCHL-01 | Phase 2 | Entity Management | Pending |
+| SCHL-02 | Phase 2 | Entity Management | Pending |
+| SCHL-03 | Phase 3 | Fund Flow | Pending |
+| SCHL-04 | Phase 3 | Fund Flow | Pending |
+| STUD-01 | Phase 2 | Entity Management | Pending |
+| STUD-02 | Phase 2 | Entity Management | Pending |
+| STUD-03 | Phase 2 | Entity Management | Pending |
+| PUBL-01 | Phase 4 | Demo Readiness | Pending |
+| PUBL-02 | Phase 4 | Demo Readiness | Pending |
+| PUBL-03 | Phase 4 | Demo Readiness | Pending |
+| PUBL-04 | Phase 4 | Demo Readiness | Pending |
+| BLKC-01 | Phase 1 | Foundation | Pending |
+| BLKC-02 | Phase 1 | Foundation | Pending |
+| BLKC-03 | Phase 1 | Foundation | Pending |
+| BLKC-04 | Phase 1 | Foundation | Pending |
+| BLKC-05 | Phase 4 | Demo Readiness | Pending |
+| ACTV-01 | Phase 2 | Entity Management | Pending |
+| ACTV-02 | Phase 4 | Demo Readiness | Pending |
+| FILE-01 | Phase 2 | Entity Management | Pending |
+| FILE-02 | Phase 2 | Entity Management | Pending |
+| FILE-03 | Phase 2 | Entity Management | Pending |
+| APIC-01 | Phase 2 | Entity Management | Pending |
+| APIC-02 | Phase 2 | Entity Management | Pending |
+| APIC-03 | Phase 4 | Demo Readiness | Pending |
 
 **Coverage:**
 - v1 requirements: 63 total
 - Mapped to phases: 63
 - Unmapped: 0 ✓
 
+| Phase | Requirements |
+|-------|-------------|
+| Phase 1 — Foundation | INFRA-01–05, AUTH-01–06, RBAC-01, BLKC-01–04 (16 requirements) |
+| Phase 2 — Entity Management | RBAC-02–05, ADMN-01–05, NGO-01–07, DONOR-01–03, SCHL-01–02, STUD-01–03, ACTV-01, FILE-01–03, APIC-01–02 (30 requirements) |
+| Phase 3 — Fund Flow | NGO-08–11, DONOR-04–06, SCHL-03–04 (9 requirements) |
+| Phase 4 — Demo Readiness | INFRA-06, PUBL-01–04, BLKC-05, ACTV-02, APIC-03 (8 requirements) |
+
 ---
 *Requirements defined: 2026-03-09*
-*Last updated: 2026-03-09 after initial definition*
+*Last updated: 2026-03-09 — traceability confirmed after roadmap creation*
