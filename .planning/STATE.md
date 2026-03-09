@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-last_updated: "2026-03-09T14:50:47.609Z"
+last_updated: "2026-03-09T16:35:50.974Z"
 progress:
   total_phases: 4
   completed_phases: 1
-  total_plans: 5
-  completed_plans: 5
-  percent: 100
+  total_plans: 10
+  completed_plans: 6
+  percent: 60
 ---
 
 # Project State: EduTrack Backend
@@ -34,7 +34,7 @@ See: `.planning/PROJECT.md` (updated 2026-03-09)
 | Phase | Name | Status | Plans |
 |-------|------|--------|-------|
 | 1 | Foundation | Complete | 5/5 |
-| 2 | Entity Management | Not Started | 0/0 |
+| 2 | Entity Management | In Progress | 1/5 |
 | 3 | Fund Flow | Not Started | 0/0 |
 | 4 | Demo Readiness | Not Started | 0/0 |
 
@@ -42,10 +42,10 @@ See: `.planning/PROJECT.md` (updated 2026-03-09)
 
 ## Current Position
 
-**Phase:** 1 — Foundation
-**Plan:** 5 of 5 (01-05)
-**Status:** Completed
-**Progress:** [██████████] 100%
+**Phase:** 2 — Entity Management
+**Plan:** 1 of 5 (02-01)
+**Status:** In Progress
+**Progress:** [██████░░░░] 60%
 
 ---
 
@@ -63,6 +63,7 @@ See: `.planning/PROJECT.md` (updated 2026-03-09)
 
 | Phase 01-foundation P04 | 88 min | 2 tasks | 8 files |
 | Phase 01-foundation P05 | 6min | 3 tasks | 4 files |
+| Phase 02-entity-management P01 | 2min | 3 tasks | 4 files |
 
 ## Decisions Log
 
@@ -80,7 +81,8 @@ See: `.planning/PROJECT.md` (updated 2026-03-09)
 | 2026-03-09 | Docker Compose with PostgreSQL healthcheck | App waits for DB to be healthy before starting |
 | 2026-03-09 | StarletteHTTPException handler after RequestValidationError in exception chain | Starlette's ExceptionMiddleware catches bare HTTP errors before our generic handler; dedicated handler required |
 | 2026-03-09 | Alembic enum types with create_type=False pattern | Enum types created once with .create(op.get_bind()), columns reference with create_type=False to avoid 'type already exists' |
-| 2026-03-09 | Docker entrypoint with exec uvicorn and set -e | set -e aborts if migrations fail; exec replaces shell for correct signal propagation to uvicorn |
+| 2026-03-09 | Late import of ActivityLog inside log() to prevent circular deps | models→database→services circular chain; late import inside function body is the only safe pattern |
+| 2026-03-09 | activity_service.log() as async def with no awaits | Consistency with all Phase 2 service methods — callers use await uniformly |
 
 ---
 
@@ -109,8 +111,8 @@ See: `.planning/PROJECT.md` (updated 2026-03-09)
 
 ## Session Continuity
 
-**Last action:** Completed 01-05-PLAN.md - Gap Closure (Exception Handler + Migration + Docker Entrypoint) (2026-03-09)
-**Next action:** Phase 1 complete - ready for Phase 2 Entity Management planning
+**Last action:** Completed 02-01-PLAN.md - Activity Logging Service and Phase 2 Database Migration (2026-03-09)
+**Next action:** Execute 02-02-PLAN.md (next Wave 2 service plan)
 
 ---
 *State initialized: 2026-03-09*

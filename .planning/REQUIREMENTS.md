@@ -92,7 +92,7 @@
 
 ### Activity Logging
 
-- [ ] **ACTV-01**: Every significant action (donation, invoice approval, fund allocation, NGO verify/blacklist, student registration, program creation, application accept/reject) writes an ActivityLog entry in the same DB transaction
+- [x] **ACTV-01**: Every significant action (donation, invoice approval, fund allocation, NGO verify/blacklist, student registration, program creation, application accept/reject) writes an ActivityLog entry in the same DB transaction
 - [ ] **ACTV-02**: Activity log entries expose `{type, color, text, time}` shape on the public activity feed endpoint, where `time` is a relative string ("2 hours ago")
 
 ### File Storage
@@ -103,8 +103,8 @@
 
 ### API Contract
 
-- [ ] **APIC-01**: All API responses use camelCase field names matching `../edutrack/src/data/mock.js` exactly
-- [ ] **APIC-02**: All Pydantic response schemas use `from_attributes=True` and `Field(alias="camelCase")` for any snake_case DB field
+- [x] **APIC-01**: All API responses use camelCase field names matching `../edutrack/src/data/mock.js` exactly
+- [x] **APIC-02**: All Pydantic response schemas use `from_attributes=True` and `Field(alias="camelCase")` for any snake_case DB field
 - [ ] **APIC-03**: The existing EduTrack frontend works against the live API from day one (no mock.js fallback needed)
 
 ## v2 Requirements
