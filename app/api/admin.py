@@ -15,7 +15,7 @@ from app.schemas.ngo import NGOResponse
 from app.schemas.student import StudentResponse
 from app.services import admin_service
 
-router = APIRouter(prefix="/admin", tags=["admin"])
+router = APIRouter(tags=["admin"])
 
 
 @router.get("/dashboard", response_model=AdminStatsResponse)

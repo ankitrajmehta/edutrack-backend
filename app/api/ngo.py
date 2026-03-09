@@ -19,7 +19,7 @@ from app.schemas.application import ApplicationResponse
 from app.services import ngo_service
 from app.services.blockchain.base import BlockchainService
 
-router = APIRouter(prefix="/ngo", tags=["ngo"])
+router = APIRouter(tags=["ngo"])
 
 
 async def get_current_ngo(
@@ -78,6 +78,16 @@ async def update_program(
     current_user=Depends(require_role("ngo")),
 ) -> ProgramResponse:
     return await ngo_service.update_program(db, program_id, data, ngo, current_user.id)
+
+
+@router.delete("/programs/{program_id}", status_code=204)
+async def delete_program(
+    program_id: int,
+    ngo: NGO = Depends(get_current_ngo),
+    db: AsyncSession = Depends(get_db),
+    current_user=Depends(require_role("ngo")),
+) -> None:
+    await ngo_service.delete_program(db, program_id, ngo, current_user.id)
 
 
 @router.post("/students", response_model=StudentResponse, status_code=201)

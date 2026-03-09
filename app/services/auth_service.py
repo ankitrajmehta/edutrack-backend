@@ -93,6 +93,10 @@ async def register(db: AsyncSession, data: RegisterRequest) -> TokenResponse:
 
 async def _create_profile(db: AsyncSession, user: User, data: RegisterRequest) -> None:
     """Create the role-specific profile row for a new user."""
+    # Students are NGO-managed — no self-registration path
+    if user.role == UserRole.student:
+        raise ConflictError("role", "students cannot self-register; contact an NGO")
+
     if user.role == UserRole.ngo:
         from app.models.ngo import NGO
 
@@ -114,12 +118,6 @@ async def _create_profile(db: AsyncSession, user: User, data: RegisterRequest) -
         from app.models.school import School
 
         profile = School(user_id=user.id, name=data.name, location=data.location)
-        db.add(profile)
-
-    elif user.role == UserRole.student:
-        from app.models.student import Student
-
-        profile = Student(user_id=user.id, name=data.name, location=data.location)
         db.add(profile)
     # admin: no separate profile row
 

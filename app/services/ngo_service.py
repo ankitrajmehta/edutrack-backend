@@ -187,6 +187,27 @@ async def update_program(
     return ProgramResponse.model_validate(program)
 
 
+async def delete_program(
+    db: AsyncSession, program_id: int, ngo: NGO, actor_id: int
+) -> None:
+    """Delete a program owned by the authenticated NGO."""
+    result = await db.execute(select(Program).where(Program.id == program_id))
+    program = result.scalar_one_or_none()
+    if program is None:
+        raise NotFoundError("Program", program_id)
+    if program.ngo_id != ngo.id:
+        raise ForbiddenError("You do not own this program")
+
+    await activity_service.log(
+        db,
+        "program",
+        f"Program '{program.name}' deleted by {ngo.name}",
+        actor_id,
+    )
+    await db.delete(program)
+    await db.commit()
+
+
 async def register_student(
     db: AsyncSession,
     data: StudentCreate,
