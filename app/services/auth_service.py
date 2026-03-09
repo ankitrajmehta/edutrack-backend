@@ -73,7 +73,7 @@ async def register(db: AsyncSession, data: RegisterRequest) -> TokenResponse:
     refresh_token_str = create_refresh_token({"sub": str(user.id)})
 
     # Store refresh token in DB
-    expires_at = datetime.now(timezone.utc) + timedelta(
+    expires_at = datetime.now(timezone.utc).replace(tzinfo=None) + timedelta(
         days=settings.REFRESH_TOKEN_EXPIRE_DAYS
     )
     refresh_token_row = RefreshToken(
@@ -151,7 +151,7 @@ async def login(db: AsyncSession, data: LoginRequest) -> TokenResponse:
     refresh_token_str = create_refresh_token({"sub": str(user.id)})
 
     # Store new refresh token
-    expires_at = datetime.now(timezone.utc) + timedelta(
+    expires_at = datetime.now(timezone.utc).replace(tzinfo=None) + timedelta(
         days=settings.REFRESH_TOKEN_EXPIRE_DAYS
     )
     refresh_token_row = RefreshToken(
@@ -203,7 +203,7 @@ async def refresh(db: AsyncSession, refresh_token_str: str) -> TokenResponse:
     access_token = create_access_token({"sub": str(user_id)})
     new_refresh_str = create_refresh_token({"sub": str(user_id)})
 
-    expires_at = datetime.now(timezone.utc) + timedelta(
+    expires_at = datetime.now(timezone.utc).replace(tzinfo=None) + timedelta(
         days=settings.REFRESH_TOKEN_EXPIRE_DAYS
     )
     new_refresh_row = RefreshToken(

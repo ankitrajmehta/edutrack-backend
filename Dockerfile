@@ -20,4 +20,4 @@ USER appuser
 
 EXPOSE 8000
 
-CMD ["scripts/entrypoint.sh"]
+CMD ["/bin/sh", "/app/scripts/entrypoint.sh"]
