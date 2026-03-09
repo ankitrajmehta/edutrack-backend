@@ -32,8 +32,8 @@
 Plans:
 - [x] 01-01-PLAN.md — Project scaffolding, Docker Compose, config, exceptions, all stub routers
 - [x] 01-02-PLAN.md — Async DB setup, all 12 ORM models, Alembic async migrations
-- [ ] 01-03-PLAN.md — BlockchainService Protocol, MockSuiService, get_blockchain() DI
-- [ ] 01-04-PLAN.md — Pydantic schemas (camelCase), JWT security, auth service, auth endpoints, RBAC guard
+- [x] 01-03-PLAN.md — BlockchainService Protocol, MockSuiService, get_blockchain() DI
+- [x] 01-04-PLAN.md — Pydantic schemas (camelCase), JWT security, auth service, auth endpoints, RBAC guard
 
 ### Success Criteria
 1. `docker compose up` starts the application and PostgreSQL with no manual intervention; `GET /healthz` returns HTTP 200.
@@ -127,7 +127,7 @@ Plans:
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 2/4 | In Progress | 2026-03-09 |
+| 1. Foundation | 4/4 | Complete | 2026-03-09 |
 | 2. Entity Management | 0/? | Not Started | — |
 | 3. Fund Flow | 0/? | Not Started | — |
 | 4. Demo Readiness | 0/? | Not Started | — |
