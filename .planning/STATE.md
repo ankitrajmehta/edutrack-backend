@@ -3,7 +3,7 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-last_updated: "2026-03-09T16:42:10.532Z"
+last_updated: "2026-03-09T16:42:26.633Z"
 progress:
   total_phases: 4
   completed_phases: 2
@@ -34,7 +34,7 @@ See: `.planning/PROJECT.md` (updated 2026-03-09)
 | Phase | Name | Status | Plans |
 |-------|------|--------|-------|
 | 1 | Foundation | Complete | 5/5 |
-| 2 | Entity Management | In Progress | 3/5 |
+| 2 | Entity Management | Complete | 5/5 |
 | 3 | Fund Flow | Not Started | 0/0 |
 | 4 | Demo Readiness | Not Started | 0/0 |
 
@@ -43,9 +43,9 @@ See: `.planning/PROJECT.md` (updated 2026-03-09)
 ## Current Position
 
 **Phase:** 2 — Entity Management
-**Plan:** 4 of 5 (02-04 next)
+**Plan:** 5 of 5 (02-05 next)
 **Status:** In Progress
-**Progress:** [████████░░] 80%
+**Progress:** [██████████] 100%
 
 ---
 
@@ -67,6 +67,7 @@ See: `.planning/PROJECT.md` (updated 2026-03-09)
 | Phase 02-entity-management P02 | 2min | 3 tasks | 3 files |
 | Phase 02-entity-management P03 | 2min | 3 tasks | 3 files |
 | Phase 02-entity-management P04 | 3min | 3 tasks | 6 files |
+| Phase 02-entity-management P05 | 3min | 3 tasks | 3 files |
 
 ## Decisions Log
 
@@ -88,7 +89,7 @@ See: `.planning/PROJECT.md` (updated 2026-03-09)
 | 2026-03-09 | activity_service.log() as async def with no awaits | Consistency with all Phase 2 service methods — callers use await uniformly |
 | 2026-03-09 | totalNGOs alias with capital NGOs | Exact match to mock.js platformStats.totalNGOs — camelCase with NGO as acronym |
 | 2026-03-09 | restore action maps to NGOStatus.pending not verified | NGO re-enters review queue after restoration — consistent with business requirement |
-| 2026-03-09 | list_ngos() returns [] on invalid status string | Graceful degradation instead of HTTP 422 — cleaner API behavior |
+| 2026-03-09 | Router prefix-free pattern for role routers | donor/school/student routers have no prefix; main.py supplies /api/{role} prefix; avoids doubled path segments |
 
 ---
 
@@ -117,8 +118,8 @@ See: `.planning/PROJECT.md` (updated 2026-03-09)
 
 ## Session Continuity
 
-**Last action:** Completed 02-02-PLAN.md - Admin Service and Route Handlers (2026-03-09)
-**Next action:** Execute 02-03-PLAN.md (next Wave 2 service plan)
+**Last action:** Completed 02-04-PLAN.md - Donor, School, Student Services and Route Handlers (2026-03-09)
+**Next action:** Execute 02-05-PLAN.md (final Phase 2 plan)
 
 ---
 *State initialized: 2026-03-09*

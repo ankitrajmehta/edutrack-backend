@@ -27,9 +27,9 @@
 
 - [ ] **RBAC-01**: Each endpoint enforces role requirement — wrong role receives HTTP 403
 - [x] **RBAC-02**: NGO users can only access/modify their own programs, students, invoices, and allocations
-- [ ] **RBAC-03**: School users can only access/modify their own invoices and profile
-- [ ] **RBAC-04**: Student users can only view their own applications
-- [ ] **RBAC-05**: Donor users can only view their own donation history
+- [x] **RBAC-03**: School users can only access/modify their own invoices and profile
+- [x] **RBAC-04**: Student users can only view their own applications
+- [x] **RBAC-05**: Donor users can only view their own donation history
 
 ### Admin
 
@@ -55,25 +55,25 @@
 
 ### Donor
 
-- [ ] **DONOR-01**: Donor can browse verified NGOs with stats
-- [ ] **DONOR-02**: Donor can browse active programs with NGO info
-- [ ] **DONOR-03**: Donor can browse students available for direct support
+- [x] **DONOR-01**: Donor can browse verified NGOs with stats
+- [x] **DONOR-02**: Donor can browse active programs with NGO info
+- [x] **DONOR-03**: Donor can browse students available for direct support
 - [ ] **DONOR-04**: Donor can donate to an NGO, program, or student (triggers blockchain donation tx, sets tx_hash)
 - [ ] **DONOR-05**: Donor can view their own donation history
 - [ ] **DONOR-06**: Donor can view a single donation detail including fund flow (where money went)
 
 ### School
 
-- [ ] **SCHL-01**: School can register as a partner
-- [ ] **SCHL-02**: School can view their own profile
+- [x] **SCHL-01**: School can register as a partner
+- [x] **SCHL-02**: School can view their own profile
 - [ ] **SCHL-03**: School can submit an invoice to claim funds (with supporting document reference)
 - [ ] **SCHL-04**: School can view their own invoices with current status
 
 ### Student
 
-- [ ] **STUD-01**: Student can browse active scholarship programs
-- [ ] **STUD-02**: Student can submit a scholarship application to a program
-- [ ] **STUD-03**: Student can view the status of their own applications
+- [x] **STUD-01**: Student can browse active scholarship programs
+- [x] **STUD-02**: Student can submit a scholarship application to a program
+- [x] **STUD-03**: Student can view the status of their own applications
 
 ### Public
 
@@ -97,9 +97,9 @@
 
 ### File Storage
 
-- [ ] **FILE-01**: User can upload a file and receive a file ID and URL in response
-- [ ] **FILE-02**: User can download a file by ID
-- [ ] **FILE-03**: File storage uses local disk with an S3-compatible interface (drop-in swap for MinIO/S3)
+- [x] **FILE-01**: User can upload a file and receive a file ID and URL in response
+- [x] **FILE-02**: User can download a file by ID
+- [x] **FILE-03**: File storage uses local disk with an S3-compatible interface (drop-in swap for MinIO/S3)
 
 ### API Contract
 
