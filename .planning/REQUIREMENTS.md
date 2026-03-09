@@ -7,11 +7,11 @@
 
 ### Infrastructure
 
-- [ ] **INFRA-01**: Project scaffolding exists (directory structure from prompt.md) with all packages installable via requirements.txt
+- [x] **INFRA-01**: Project scaffolding exists (directory structure from prompt.md) with all packages installable via requirements.txt
 - [ ] **INFRA-02**: PostgreSQL connection works via async SQLAlchemy (asyncpg driver) with Alembic migrations (async template)
-- [ ] **INFRA-03**: Docker Compose runs app + PostgreSQL with a single `docker compose up`
-- [ ] **INFRA-04**: `.env` / `config.py` (Pydantic BaseSettings) loads all required environment variables
-- [ ] **INFRA-05**: Global exception handler returns all errors as `{detail, code, statusCode}` JSON — no unhandled 500s leak stack traces to clients
+- [x] **INFRA-03**: Docker Compose runs app + PostgreSQL with a single `docker compose up`
+- [x] **INFRA-04**: `.env` / `config.py` (Pydantic BaseSettings) loads all required environment variables
+- [x] **INFRA-05**: Global exception handler returns all errors as `{detail, code, statusCode}` JSON — no unhandled 500s leak stack traces to clients
 - [ ] **INFRA-06**: Seed script (idempotent) populates DB with data matching mock.js exactly (same IDs, values, relationships)
 
 ### Authentication

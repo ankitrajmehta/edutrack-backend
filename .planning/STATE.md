@@ -19,7 +19,7 @@ See: `.planning/PROJECT.md` (updated 2026-03-09)
 
 | Phase | Name | Status | Plans |
 |-------|------|--------|-------|
-| 1 | Foundation | Not Started | 0/0 |
+| 1 | Foundation | In Progress | 1/4 |
 | 2 | Entity Management | Not Started | 0/0 |
 | 3 | Fund Flow | Not Started | 0/0 |
 | 4 | Demo Readiness | Not Started | 0/0 |
@@ -29,9 +29,9 @@ See: `.planning/PROJECT.md` (updated 2026-03-09)
 ## Current Position
 
 **Phase:** 1 — Foundation
-**Plan:** None yet
-**Status:** Not started
-**Progress:** ░░░░░░░░░░ 0%
+**Plan:** 1 of 4 (01-01)
+**Status:** Completed
+**Progress:** ████████░░ 25%
 
 ---
 
@@ -42,8 +42,8 @@ See: `.planning/PROJECT.md` (updated 2026-03-09)
 | Phases total | 4 |
 | Requirements total | 63 |
 | Requirements mapped | 63 |
-| Plans created | 0 |
-| Plans complete | 0 |
+| Plans created | 4 |
+| Plans complete | 1 |
 
 ---
 
@@ -58,6 +58,9 @@ See: `.planning/PROJECT.md` (updated 2026-03-09)
 | 2026-03-09 | ACTV-01 in Phase 2, ACTV-02 in Phase 4 | Activity log writer must exist when services are built (Phase 2); public feed shape (relative time) is a demo-layer concern (Phase 4) |
 | 2026-03-09 | Alembic `--template async` non-negotiable | Sync env.py + asyncpg deadlocks; noted as CRITICAL pitfall in research |
 | 2026-03-09 | bcrypt pinned `>=4.1.2,<5.0.0` | 4.1.0 yanked, ≥5.0.0 breaks passlib; verified via pip index on 2026-03-09 |
+| 2026-03-09 | FastAPI app with CORS and exception handlers | Created in Plan 01-01 - all 8 routers registered under /api prefix |
+| 2026-03-09 | Pydantic BaseSettings for env management | All env vars loaded via app/core/config.py with safe defaults |
+| 2026-03-09 | Docker Compose with PostgreSQL healthcheck | App waits for DB to be healthy before starting |
 
 ---
 
@@ -86,8 +89,8 @@ See: `.planning/PROJECT.md` (updated 2026-03-09)
 
 ## Session Continuity
 
-**Last action:** Roadmap created (2026-03-09)
-**Next action:** Run `/gsd-plan-phase 1` to decompose Phase 1 into executable plans
+**Last action:** Completed 01-01-PLAN.md - Infrastructure Setup (2026-03-09)
+**Next action:** Execute /gsd-execute-phase 01-01 to run the plan
 
 ---
 *State initialized: 2026-03-09*

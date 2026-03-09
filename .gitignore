@@ -1,2 +1,5 @@
 .gemini/
 .opencode/
+.env
+__pycache__/
+*.pyc
