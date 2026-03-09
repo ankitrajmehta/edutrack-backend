@@ -26,18 +26,18 @@
 ### Role-Based Access Control
 
 - [ ] **RBAC-01**: Each endpoint enforces role requirement — wrong role receives HTTP 403
-- [ ] **RBAC-02**: NGO users can only access/modify their own programs, students, invoices, and allocations
+- [x] **RBAC-02**: NGO users can only access/modify their own programs, students, invoices, and allocations
 - [ ] **RBAC-03**: School users can only access/modify their own invoices and profile
 - [ ] **RBAC-04**: Student users can only view their own applications
 - [ ] **RBAC-05**: Donor users can only view their own donation history
 
 ### Admin
 
-- [ ] **ADMN-01**: Admin can view aggregated platform stats (total donations, students, NGOs, programs, schools, funds allocated/utilized)
-- [ ] **ADMN-02**: Admin can list all NGOs, filterable by status (pending/verified/rejected/blacklisted)
-- [ ] **ADMN-03**: Admin can verify, reject, blacklist, or restore an NGO
-- [ ] **ADMN-04**: Admin can view combined blacklist (blacklisted NGOs + students)
-- [ ] **ADMN-05**: Admin can blacklist or restore a student
+- [x] **ADMN-01**: Admin can view aggregated platform stats (total donations, students, NGOs, programs, schools, funds allocated/utilized)
+- [x] **ADMN-02**: Admin can list all NGOs, filterable by status (pending/verified/rejected/blacklisted)
+- [x] **ADMN-03**: Admin can verify, reject, blacklist, or restore an NGO
+- [x] **ADMN-04**: Admin can view combined blacklist (blacklisted NGOs + students)
+- [x] **ADMN-05**: Admin can blacklist or restore a student
 
 ### NGO
 

@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-last_updated: "2026-03-09T16:35:50.974Z"
+last_updated: "2026-03-09T16:42:10.532Z"
 progress:
   total_phases: 4
-  completed_phases: 1
+  completed_phases: 2
   total_plans: 10
-  completed_plans: 6
-  percent: 60
+  completed_plans: 10
+  percent: 100
 ---
 
 # Project State: EduTrack Backend
@@ -34,7 +34,7 @@ See: `.planning/PROJECT.md` (updated 2026-03-09)
 | Phase | Name | Status | Plans |
 |-------|------|--------|-------|
 | 1 | Foundation | Complete | 5/5 |
-| 2 | Entity Management | In Progress | 1/5 |
+| 2 | Entity Management | In Progress | 3/5 |
 | 3 | Fund Flow | Not Started | 0/0 |
 | 4 | Demo Readiness | Not Started | 0/0 |
 
@@ -43,9 +43,9 @@ See: `.planning/PROJECT.md` (updated 2026-03-09)
 ## Current Position
 
 **Phase:** 2 — Entity Management
-**Plan:** 1 of 5 (02-01)
+**Plan:** 4 of 5 (02-04 next)
 **Status:** In Progress
-**Progress:** [██████░░░░] 60%
+**Progress:** [████████░░] 80%
 
 ---
 
@@ -64,6 +64,9 @@ See: `.planning/PROJECT.md` (updated 2026-03-09)
 | Phase 01-foundation P04 | 88 min | 2 tasks | 8 files |
 | Phase 01-foundation P05 | 6min | 3 tasks | 4 files |
 | Phase 02-entity-management P01 | 2min | 3 tasks | 4 files |
+| Phase 02-entity-management P02 | 2min | 3 tasks | 3 files |
+| Phase 02-entity-management P03 | 2min | 3 tasks | 3 files |
+| Phase 02-entity-management P04 | 3min | 3 tasks | 6 files |
 
 ## Decisions Log
 
@@ -83,6 +86,9 @@ See: `.planning/PROJECT.md` (updated 2026-03-09)
 | 2026-03-09 | Alembic enum types with create_type=False pattern | Enum types created once with .create(op.get_bind()), columns reference with create_type=False to avoid 'type already exists' |
 | 2026-03-09 | Late import of ActivityLog inside log() to prevent circular deps | models→database→services circular chain; late import inside function body is the only safe pattern |
 | 2026-03-09 | activity_service.log() as async def with no awaits | Consistency with all Phase 2 service methods — callers use await uniformly |
+| 2026-03-09 | totalNGOs alias with capital NGOs | Exact match to mock.js platformStats.totalNGOs — camelCase with NGO as acronym |
+| 2026-03-09 | restore action maps to NGOStatus.pending not verified | NGO re-enters review queue after restoration — consistent with business requirement |
+| 2026-03-09 | list_ngos() returns [] on invalid status string | Graceful degradation instead of HTTP 422 — cleaner API behavior |
 
 ---
 
@@ -111,8 +117,8 @@ See: `.planning/PROJECT.md` (updated 2026-03-09)
 
 ## Session Continuity
 
-**Last action:** Completed 02-01-PLAN.md - Activity Logging Service and Phase 2 Database Migration (2026-03-09)
-**Next action:** Execute 02-02-PLAN.md (next Wave 2 service plan)
+**Last action:** Completed 02-02-PLAN.md - Admin Service and Route Handlers (2026-03-09)
+**Next action:** Execute 02-03-PLAN.md (next Wave 2 service plan)
 
 ---
 *State initialized: 2026-03-09*
