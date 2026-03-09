@@ -5,9 +5,11 @@ get_current_ngo: local dependency that resolves the authenticated NGO profile.
 All handlers receive a typed NGO object (not raw user_id) for ownership scoping.
 """
 
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, Body
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
+from typing import Optional
+from pydantic import BaseModel
 
 from app.core.dependencies import get_db, require_role, get_blockchain
 from app.core.exceptions import NotFoundError
@@ -16,6 +18,8 @@ from app.schemas.ngo import NGOStatsResponse, ApplicationRejectRequest
 from app.schemas.program import ProgramCreate, ProgramUpdate, ProgramResponse
 from app.schemas.student import StudentCreate, StudentResponse
 from app.schemas.application import ApplicationResponse
+from app.schemas.invoice import InvoiceResponse
+from app.schemas.allocation import AllocationCreate, AllocationResponse
 from app.services import ngo_service
 from app.services.blockchain.base import BlockchainService
 
@@ -158,3 +162,65 @@ async def reject_application(
     return await ngo_service.reject_application(
         db, application_id, ngo, data.reason, current_user.id
     )
+
+
+# ─── Invoice & Allocation endpoints (NGO-08 through NGO-11) ───────────────────────
+
+
+class InvoiceRejectRequest(BaseModel):
+    reason: Optional[str] = None
+
+
+@router.get("/invoices", response_model=list[InvoiceResponse])
+async def list_invoices(
+    ngo: NGO = Depends(get_current_ngo),
+    db: AsyncSession = Depends(get_db),
+) -> list[InvoiceResponse]:
+    return await ngo_service.list_invoices(db, ngo)
+
+
+@router.patch("/invoices/{invoice_id}/approve", response_model=InvoiceResponse)
+async def approve_invoice(
+    invoice_id: int,
+    ngo: NGO = Depends(get_current_ngo),
+    db: AsyncSession = Depends(get_db),
+    blockchain: BlockchainService = Depends(get_blockchain),
+    current_user=Depends(require_role("ngo")),
+) -> InvoiceResponse:
+    return await ngo_service.approve_invoice(
+        db, invoice_id, ngo, blockchain, current_user.id
+    )
+
+
+@router.patch("/invoices/{invoice_id}/reject", response_model=InvoiceResponse)
+async def reject_invoice(
+    invoice_id: int,
+    body: InvoiceRejectRequest = Body(default_factory=InvoiceRejectRequest),
+    ngo: NGO = Depends(get_current_ngo),
+    db: AsyncSession = Depends(get_db),
+    current_user=Depends(require_role("ngo")),
+) -> InvoiceResponse:
+    return await ngo_service.reject_invoice(
+        db, invoice_id, ngo, current_user.id, body.reason
+    )
+
+
+@router.post("/allocations", response_model=AllocationResponse, status_code=201)
+async def create_allocation(
+    data: AllocationCreate,
+    ngo: NGO = Depends(get_current_ngo),
+    db: AsyncSession = Depends(get_db),
+    blockchain: BlockchainService = Depends(get_blockchain),
+    current_user=Depends(require_role("ngo")),
+) -> AllocationResponse:
+    return await ngo_service.create_allocation(
+        db, data, ngo, blockchain, current_user.id
+    )
+
+
+@router.get("/allocations", response_model=list[AllocationResponse])
+async def list_allocations(
+    ngo: NGO = Depends(get_current_ngo),
+    db: AsyncSession = Depends(get_db),
+) -> list[AllocationResponse]:
+    return await ngo_service.list_allocations(db, ngo)

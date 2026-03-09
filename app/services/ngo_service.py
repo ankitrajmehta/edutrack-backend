@@ -13,15 +13,24 @@ from typing import Optional
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.core.exceptions import NotFoundError, ForbiddenError, ConflictError
+from app.core.exceptions import (
+    NotFoundError,
+    ForbiddenError,
+    ConflictError,
+    AppValidationError,
+)
 from app.models.application import ScholarshipApplication, ApplicationStatus
 from app.models.ngo import NGO
 from app.models.program import Program
 from app.models.student import Student
+from app.models.invoice import Invoice, InvoiceStatus
+from app.models.allocation import Allocation
 from app.schemas.application import ApplicationResponse
 from app.schemas.ngo import NGOStatsResponse
 from app.schemas.program import ProgramCreate, ProgramUpdate, ProgramResponse
 from app.schemas.student import StudentCreate, StudentResponse
+from app.schemas.invoice import InvoiceResponse
+from app.schemas.allocation import AllocationCreate, AllocationResponse
 from app.services import activity_service
 from app.services.blockchain.base import BlockchainService
 
@@ -354,3 +363,153 @@ async def reject_application(
     )
     await db.commit()
     return ApplicationResponse.model_validate(app)
+
+
+# ─── Invoice & Allocation functions (NGO-08 through NGO-11) ───────────────────────
+
+
+async def list_invoices(db: AsyncSession, ngo: NGO) -> list[InvoiceResponse]:
+    """NGO-08: List invoices for this NGO only (scoped by ngo_id)."""
+    result = await db.execute(
+        select(Invoice).where(Invoice.ngo_id == ngo.id).order_by(Invoice.id.desc())
+    )
+    return [InvoiceResponse.model_validate(i) for i in result.scalars().all()]
+
+
+async def approve_invoice(
+    db: AsyncSession,
+    invoice_id: int,
+    ngo: NGO,
+    blockchain: BlockchainService,
+    actor_id: int,
+) -> InvoiceResponse:
+    """NGO-09: Approve invoice — blockchain.settle_invoice() FIRST, then mutate, then commit."""
+    result = await db.execute(select(Invoice).where(Invoice.id == invoice_id))
+    invoice = result.scalar_one_or_none()
+    if invoice is None:
+        raise NotFoundError("Invoice", invoice_id)
+    if invoice.ngo_id != ngo.id:
+        raise ForbiddenError("Invoice does not belong to your NGO")
+    if invoice.status != InvoiceStatus.pending:
+        raise AppValidationError(f"Invoice is already {invoice.status.value}")
+
+    # Blockchain FIRST — no commit until tx_hash confirmed
+    tx = await blockchain.settle_invoice(
+        str(ngo.id), str(invoice.school_id), str(invoice.id), invoice.amount
+    )
+    invoice.status = InvoiceStatus.approved
+    invoice.tx_hash = tx.tx_hash
+    invoice.approved_date = datetime.now(timezone.utc)
+
+    await activity_service.log(
+        db,
+        "invoice",
+        f"Invoice #{invoice.id} from '{invoice.school_name}' approved by {ngo.name}",
+        actor_id,
+    )
+    await db.commit()
+    await db.refresh(invoice)
+    return InvoiceResponse.model_validate(invoice)
+
+
+async def reject_invoice(
+    db: AsyncSession,
+    invoice_id: int,
+    ngo: NGO,
+    actor_id: int,
+    reason: Optional[str] = None,
+) -> InvoiceResponse:
+    """NGO-09: Reject invoice — no blockchain call, status → rejected."""
+    result = await db.execute(select(Invoice).where(Invoice.id == invoice_id))
+    invoice = result.scalar_one_or_none()
+    if invoice is None:
+        raise NotFoundError("Invoice", invoice_id)
+    if invoice.ngo_id != ngo.id:
+        raise ForbiddenError("Invoice does not belong to your NGO")
+    if invoice.status != InvoiceStatus.pending:
+        raise AppValidationError(f"Invoice is already {invoice.status.value}")
+
+    invoice.status = InvoiceStatus.rejected
+
+    await activity_service.log(
+        db,
+        "invoice",
+        f"Invoice #{invoice.id} from '{invoice.school_name}' rejected by {ngo.name}",
+        actor_id,
+    )
+    await db.commit()
+    await db.refresh(invoice)
+    return InvoiceResponse.model_validate(invoice)
+
+
+async def create_allocation(
+    db: AsyncSession,
+    data: AllocationCreate,
+    ngo: NGO,
+    blockchain: BlockchainService,
+    actor_id: int,
+) -> AllocationResponse:
+    """NGO-10: Allocate funds — blockchain.allocate_funds() FIRST, then insert Allocation, update student wallet, then commit."""
+    if not data.student_id and not data.program_id:
+        raise AppValidationError("Either studentId or programId must be provided")
+
+    # Resolve target for blockchain call and activity log
+    target_name = f"{'student' if data.student_id else 'program'} #{data.student_id or data.program_id}"
+
+    # Blockchain FIRST — allocate_funds(ngo_id, program_id, student_id, amount)
+    tx = await blockchain.allocate_funds(
+        str(ngo.id),
+        str(data.program_id or 0),
+        str(data.student_id or 0),
+        data.amount,
+    )
+
+    allocation = Allocation(
+        ngo_id=ngo.id,
+        student_id=data.student_id,
+        program_id=data.program_id,
+        amount=data.amount,
+        tx_hash=tx.tx_hash,
+    )
+    db.add(allocation)
+
+    # Update student wallet balance if targeting a student
+    if data.student_id:
+        student_result = await db.execute(
+            select(Student).where(Student.id == data.student_id)
+        )
+        student = student_result.scalar_one_or_none()
+        if student is not None:
+            student.wallet_balance = student.wallet_balance + data.amount
+            student.total_received = student.total_received + data.amount
+            target_name = f"student '{student.name}'"
+
+    # Update program allocated counter if targeting a program
+    elif data.program_id:
+        prog_result = await db.execute(
+            select(Program).where(Program.id == data.program_id)
+        )
+        program = prog_result.scalar_one_or_none()
+        if program is not None:
+            program.allocated = program.allocated + data.amount
+            target_name = f"program '{program.name}'"
+
+    await activity_service.log(
+        db,
+        "allocation",
+        f"{ngo.name} allocated ${data.amount:,.2f} to {target_name}",
+        actor_id,
+    )
+    await db.commit()
+    await db.refresh(allocation)
+    return AllocationResponse.model_validate(allocation)
+
+
+async def list_allocations(db: AsyncSession, ngo: NGO) -> list[AllocationResponse]:
+    """NGO-11: List this NGO's allocations (scoped by ngo_id)."""
+    result = await db.execute(
+        select(Allocation)
+        .where(Allocation.ngo_id == ngo.id)
+        .order_by(Allocation.id.desc())
+    )
+    return [AllocationResponse.model_validate(a) for a in result.scalars().all()]
