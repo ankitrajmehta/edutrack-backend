@@ -84,10 +84,10 @@
 
 ### Blockchain Abstraction
 
-- [ ] **BLKC-01**: `BlockchainService` Protocol (interface) defined in `app/services/blockchain/base.py` with methods: `create_wallet`, `donate`, `allocate_funds`, `settle_invoice`, `get_balance`
-- [ ] **BLKC-02**: Mock implementation returns realistic 64-char hex tx hashes and simulates async latency (0.1–0.4s)
-- [ ] **BLKC-03**: All blockchain calls log structured output
-- [ ] **BLKC-04**: Blockchain service injected via `Depends(get_blockchain)` — no direct imports of mock in callers
+- [x] **BLKC-01**: `BlockchainService` Protocol (interface) defined in `app/services/blockchain/base.py` with methods: `create_wallet`, `donate`, `allocate_funds`, `settle_invoice`, `get_balance`
+- [x] **BLKC-02**: Mock implementation returns realistic 64-char hex tx hashes and simulates async latency (0.1–0.4s)
+- [x] **BLKC-03**: All blockchain calls log structured output
+- [x] **BLKC-04**: Blockchain service injected via `Depends(get_blockchain)` — no direct imports of mock in callers
 - [ ] **BLKC-05**: Sui Move smart contract (`contracts/sources/scholarship.move`) is syntactically valid and deployable to testnet
 
 ### Activity Logging
