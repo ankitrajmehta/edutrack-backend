@@ -3,12 +3,12 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-last_updated: "2026-03-09T16:52:13.130Z"
+last_updated: "2026-03-09T18:23:33Z"
 progress:
   total_phases: 4
   completed_phases: 2
   total_plans: 10
-  completed_plans: 10
+  completed_plans: 11
   percent: 100
 ---
 
@@ -35,7 +35,7 @@ See: `.planning/PROJECT.md` (updated 2026-03-09)
 |-------|------|--------|-------|
 | 1 | Foundation | Complete | 5/5 |
 | 2 | Entity Management | Complete | 5/5 |
-| 3 | Fund Flow | In Progress | 1/1 |
+| 3 | Fund Flow | In Progress | 2/2 |
 | 4 | Demo Readiness | Not Started | 0/0 |
 
 ---
@@ -43,7 +43,7 @@ See: `.planning/PROJECT.md` (updated 2026-03-09)
 ## Current Position
 
 **Phase:** 3 — Fund Flow (In Progress)
-**Plan:** 1 of 1 (03-01 — DONE)
+**Plan:** 2 of 2 (03-02 — DONE)
 **Status:** Plan Complete
 **Progress:** [██████████] 100%
 
@@ -69,6 +69,7 @@ See: `.planning/PROJECT.md` (updated 2026-03-09)
 | Phase 02-entity-management P04 | 3min | 3 tasks | 6 files |
 | Phase 02-entity-management P05 | 3min | 3 tasks | 3 files |
 | Phase 03-fund-flow P01 | <1min | 2 tasks | 5 files |
+| Phase 03-fund-flow P02 | 2min | 2 tasks | 2 files |
 
 ## Decisions Log
 
@@ -95,6 +96,8 @@ See: `.planning/PROJECT.md` (updated 2026-03-09)
 | 2026-03-09 | _create_student() shared helper — canonical student creation | Single implementation prevents drift; both direct registration and accept-application enforce blockchain atomicity and scholarship ID format |
 | 2026-03-09 | get_current_ngo defined locally in ngo.py (not dependencies.py) | NGO profile resolution is domain-specific; not appropriate for global dependencies.py |
 | 2026-03-09 | db.refresh(ngo) after _create_student() commit | _create_student() internally commits which expires SQLAlchemy ORM state; refresh mandatory before updating counters |
+| 2026-03-09 | blockchain.donate() called before db.commit() in create_donation | Tx atomicity requires blockchain tx recorded before database commit |
+| 2026-03-09 | Ownership check via ForbiddenError in get_donation_detail | Prevents donors from viewing each other's donation details |
 
 ---
 
@@ -123,7 +126,7 @@ See: `.planning/PROJECT.md` (updated 2026-03-09)
 
 ## Session Continuity
 
-**Last action:** Completed 03-01-PLAN.md - Allocation Foundation (2026-03-09)
+**Last action:** Completed 03-02-PLAN.md - Donor Donation Endpoints (2026-03-09)
 **Next action:** Ready for more Phase 3 plans
 
 ---
