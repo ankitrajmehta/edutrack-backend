@@ -25,7 +25,7 @@ See: `.planning/PROJECT.md` (updated 2026-03-09)
 
 **Core value:** Every education fund allocation is transparently tracked and verifiably delivered, giving donors, NGOs, and the public an auditable record from donation to student wallet.
 
-**Current focus:** Phase 2 — Entity Management
+**Current focus:** Phase 3 — Fund Flow
 
 ---
 
@@ -42,9 +42,9 @@ See: `.planning/PROJECT.md` (updated 2026-03-09)
 
 ## Current Position
 
-**Phase:** 2 — Entity Management
-**Plan:** 5 of 5 (02-05 next)
-**Status:** In Progress
+**Phase:** 2 — Entity Management (Complete)
+**Plan:** 5 of 5 (02-05 — DONE)
+**Status:** Phase Complete
 **Progress:** [██████████] 100%
 
 ---
@@ -90,6 +90,10 @@ See: `.planning/PROJECT.md` (updated 2026-03-09)
 | 2026-03-09 | totalNGOs alias with capital NGOs | Exact match to mock.js platformStats.totalNGOs — camelCase with NGO as acronym |
 | 2026-03-09 | restore action maps to NGOStatus.pending not verified | NGO re-enters review queue after restoration — consistent with business requirement |
 | 2026-03-09 | Router prefix-free pattern for role routers | donor/school/student routers have no prefix; main.py supplies /api/{role} prefix; avoids doubled path segments |
+| 2026-03-09 | Files router has no APIRouter prefix (02-05) | main.py registers with prefix=/api/files; router-level prefix would create /api/files/files/upload double path |
+| 2026-03-09 | _create_student() shared helper — canonical student creation | Single implementation prevents drift; both direct registration and accept-application enforce blockchain atomicity and scholarship ID format |
+| 2026-03-09 | get_current_ngo defined locally in ngo.py (not dependencies.py) | NGO profile resolution is domain-specific; not appropriate for global dependencies.py |
+| 2026-03-09 | db.refresh(ngo) after _create_student() commit | _create_student() internally commits which expires SQLAlchemy ORM state; refresh mandatory before updating counters |
 
 ---
 
@@ -118,8 +122,8 @@ See: `.planning/PROJECT.md` (updated 2026-03-09)
 
 ## Session Continuity
 
-**Last action:** Completed 02-04-PLAN.md - Donor, School, Student Services and Route Handlers (2026-03-09)
-**Next action:** Execute 02-05-PLAN.md (final Phase 2 plan)
+**Last action:** Completed 02-05-PLAN.md - File Upload and Download API (2026-03-09)
+**Next action:** Plan Phase 3 (Fund Flow)
 
 ---
 *State initialized: 2026-03-09*

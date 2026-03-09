@@ -41,13 +41,13 @@
 
 ### NGO
 
-- [ ] **NGO-01**: NGO can view their own dashboard stats (programs count, students helped, funds allocated)
-- [ ] **NGO-02**: NGO can create a scholarship program with name, description, categories, budget, and dates
-- [ ] **NGO-03**: NGO can list, view, and update their own programs
-- [ ] **NGO-04**: NGO can register a student (generates EDU-YYYY-XXXXX scholarship ID, creates blockchain wallet)
-- [ ] **NGO-05**: NGO can list and view their own students including wallet balance
-- [ ] **NGO-06**: NGO can view pending scholarship applications for their programs
-- [ ] **NGO-07**: NGO can accept an application (auto-creates student record) or reject it with a reason
+- [x] **NGO-01**: NGO can view their own dashboard stats (programs count, students helped, funds allocated)
+- [x] **NGO-02**: NGO can create a scholarship program with name, description, categories, budget, and dates
+- [x] **NGO-03**: NGO can list, view, and update their own programs
+- [x] **NGO-04**: NGO can register a student (generates EDU-YYYY-XXXXX scholarship ID, creates blockchain wallet)
+- [x] **NGO-05**: NGO can list and view their own students including wallet balance
+- [x] **NGO-06**: NGO can view pending scholarship applications for their programs
+- [x] **NGO-07**: NGO can accept an application (auto-creates student record) or reject it with a reason
 - [ ] **NGO-08**: NGO can list invoices submitted by schools for their programs
 - [ ] **NGO-09**: NGO can approve an invoice (triggers blockchain settlement tx, sets tx_hash) or reject it
 - [ ] **NGO-10**: NGO can allocate funds to a student or program (triggers blockchain allocation tx, sets tx_hash)
