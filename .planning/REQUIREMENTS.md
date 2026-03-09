@@ -66,8 +66,8 @@
 
 - [x] **SCHL-01**: School can register as a partner
 - [x] **SCHL-02**: School can view their own profile
-- [ ] **SCHL-03**: School can submit an invoice to claim funds (with supporting document reference)
-- [ ] **SCHL-04**: School can view their own invoices with current status
+- [x] **SCHL-03**: School can submit an invoice to claim funds (with supporting document reference)
+- [x] **SCHL-04**: School can view their own invoices with current status
 
 ### Student
 
