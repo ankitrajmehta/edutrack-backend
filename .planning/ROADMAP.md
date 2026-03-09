@@ -10,7 +10,7 @@
 
 | # | Phase | Goal | Requirements | Plans |
 |---|-------|------|--------------|-------|
-| 1 | Foundation | Working authenticated API skeleton in Docker | INFRA-01–05, AUTH-01–06, RBAC-01, BLKC-01–04 | TBD |
+| 1 | Foundation | Working authenticated API skeleton in Docker | INFRA-01–05, AUTH-01–06, RBAC-01, BLKC-01–04 | 4 plans |
 | 2 | Entity Management | All stakeholder entities fully CRUD-able with scoped access | RBAC-02–05, ADMN-01–05, NGO-01–07, DONOR-01–03, SCHL-01–02, STUD-01–03, ACTV-01, FILE-01–03, APIC-01–02 | TBD |
 | 3 | Fund Flow | Every money movement triggers a blockchain tx with a recorded hash | NGO-08–11, DONOR-04–06, SCHL-03–04 | TBD |
 | 4 | Demo Readiness | Frontend runs against live API with no mock data, Move contract deployable | INFRA-06, PUBL-01–04, BLKC-05, ACTV-02, APIC-03 | TBD |
