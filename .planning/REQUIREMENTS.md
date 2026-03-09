@@ -48,8 +48,8 @@
 - [x] **NGO-05**: NGO can list and view their own students including wallet balance
 - [x] **NGO-06**: NGO can view pending scholarship applications for their programs
 - [x] **NGO-07**: NGO can accept an application (auto-creates student record) or reject it with a reason
-- [ ] **NGO-08**: NGO can list invoices submitted by schools for their programs
-- [ ] **NGO-09**: NGO can approve an invoice (triggers blockchain settlement tx, sets tx_hash) or reject it
+- [x] **NGO-08**: NGO can list invoices submitted by schools for their programs
+- [x] **NGO-09**: NGO can approve an invoice (triggers blockchain settlement tx, sets tx_hash) or reject it
 - [x] **NGO-10**: NGO can allocate funds to a student or program (triggers blockchain allocation tx, sets tx_hash)
 - [x] **NGO-11**: NGO can view allocation history
 
@@ -58,9 +58,9 @@
 - [x] **DONOR-01**: Donor can browse verified NGOs with stats
 - [x] **DONOR-02**: Donor can browse active programs with NGO info
 - [x] **DONOR-03**: Donor can browse students available for direct support
-- [ ] **DONOR-04**: Donor can donate to an NGO, program, or student (triggers blockchain donation tx, sets tx_hash)
-- [ ] **DONOR-05**: Donor can view their own donation history
-- [ ] **DONOR-06**: Donor can view a single donation detail including fund flow (where money went)
+- [x] **DONOR-04**: Donor can donate to an NGO, program, or student (triggers blockchain donation tx, sets tx_hash)
+- [x] **DONOR-05**: Donor can view their own donation history
+- [x] **DONOR-06**: Donor can view a single donation detail including fund flow (where money went)
 
 ### School
 
