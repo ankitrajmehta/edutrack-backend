@@ -11,7 +11,7 @@
 | # | Phase | Goal | Requirements | Plans |
 |---|-------|------|--------------|-------|
 | 1 | Foundation | Working authenticated API skeleton in Docker | INFRA-01–05, AUTH-01–06, RBAC-01, BLKC-01–04 | 4 plans |
-| 2 | Entity Management | All stakeholder entities fully CRUD-able with scoped access | RBAC-02–05, ADMN-01–05, NGO-01–07, DONOR-01–03, SCHL-01–02, STUD-01–03, ACTV-01, FILE-01–03, APIC-01–02 | TBD |
+| 2 | Entity Management | All stakeholder entities fully CRUD-able with scoped access | RBAC-02–05, ADMN-01–05, NGO-01–07, DONOR-01–03, SCHL-01–02, STUD-01–03, ACTV-01, FILE-01–03, APIC-01–02 | 5 plans |
 | 3 | Fund Flow | Every money movement triggers a blockchain tx with a recorded hash | NGO-08–11, DONOR-04–06, SCHL-03–04 | TBD |
 | 4 | Demo Readiness | Frontend runs against live API with no mock data, Move contract deployable | INFRA-06, PUBL-01–04, BLKC-05, ACTV-02, APIC-03 | TBD |
 
@@ -61,6 +61,15 @@ Plans:
 **Depends on:** Phase 1
 
 **Requirements:** RBAC-02, RBAC-03, RBAC-04, RBAC-05, ADMN-01, ADMN-02, ADMN-03, ADMN-04, ADMN-05, NGO-01, NGO-02, NGO-03, NGO-04, NGO-05, NGO-06, NGO-07, DONOR-01, DONOR-02, DONOR-03, SCHL-01, SCHL-02, STUD-01, STUD-02, STUD-03, ACTV-01, FILE-01, FILE-02, FILE-03, APIC-01, APIC-02
+
+**Plans:** 5 plans
+
+Plans:
+- [ ] 02-01-PLAN.md — activity_service.log() + Alembic migration 0002 (color, rejection_reason, submitted_by_user_id)
+- [ ] 02-02-PLAN.md — Admin service + routes (9 endpoints: dashboard, NGO management, blacklist)
+- [ ] 02-03-PLAN.md — NGO service + routes (11 endpoints: programs CRUD, student registration, applications)
+- [ ] 02-04-PLAN.md — Donor + School + Student services + routes (8 endpoints total)
+- [ ] 02-05-PLAN.md — File service + routes (upload/download with aiofiles)
 
 ### Success Criteria
 1. Admin can verify an NGO (`PATCH /api/admin/ngos/{id}/status`), which changes its status and writes an `ActivityLog` entry in the same database transaction.
@@ -129,7 +138,7 @@ Plans:
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 4/4 | Complete | 2026-03-09 |
-| 2. Entity Management | 0/? | Not Started | — |
+| 2. Entity Management | 0/5 | Not Started | — |
 | 3. Fund Flow | 0/? | Not Started | — |
 | 4. Demo Readiness | 0/? | Not Started | — |
 
