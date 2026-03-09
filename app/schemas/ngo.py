@@ -34,3 +34,15 @@ class NGOResponse(BaseResponse):
     students_helped: int = Field(alias="studentsHelped")
     programs_count: int = Field(alias="programsCount")
     registered_date: datetime = Field(alias="registeredDate")
+
+
+class NGOStatsResponse(BaseResponse):
+    """NGO-scoped dashboard stats."""
+
+    programs_count: int = Field(alias="programsCount")
+    students_helped: int = Field(alias="studentsHelped")
+    funds_allocated: float = Field(alias="fundsAllocated")
+
+
+class ApplicationRejectRequest(BaseResponse):
+    reason: str  # rejection_reason stored on the application
