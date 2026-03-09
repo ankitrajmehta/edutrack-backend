@@ -32,5 +32,6 @@ class ActivityLog(Base):
     actor_id = Column(
         Integer, ForeignKey("users.id", ondelete="SET NULL"), nullable=True, index=True
     )
+    color = Column(String(50), nullable=True)
 
     actor = relationship("User", back_populates="activity_logs", lazy="joined")

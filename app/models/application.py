@@ -42,5 +42,12 @@ class ScholarshipApplication(Base):
         SAEnum(ApplicationStatus), default=ApplicationStatus.pending, nullable=False
     )
     applied_date = Column(DateTime, default=datetime.utcnow, nullable=False)
+    rejection_reason = Column(Text, nullable=True)
+    submitted_by_user_id = Column(
+        Integer,
+        ForeignKey("users.id", ondelete="SET NULL"),
+        nullable=True,
+        index=True,
+    )
 
     program = relationship("Program", back_populates="applications", lazy="joined")
