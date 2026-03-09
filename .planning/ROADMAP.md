@@ -95,6 +95,14 @@ Plans:
 
 **Requirements:** NGO-08, NGO-09, NGO-10, NGO-11, DONOR-04, DONOR-05, DONOR-06, SCHL-03, SCHL-04
 
+**Plans:** 4 plans
+
+Plans:
+- [ ] 03-01-PLAN.md — Allocation model, schemas, migration 0003
+- [ ] 03-02-PLAN.md — Donor service + routes (DONOR-04, DONOR-05, DONOR-06)
+- [ ] 03-03-PLAN.md — NGO invoice + allocation service + routes (NGO-08–11)
+- [ ] 03-04-PLAN.md — School invoice service + routes (SCHL-03, SCHL-04)
+
 ### Success Criteria
 1. Donor makes a donation to an NGO, program, or named student (`POST /api/donor/donations`) — the response includes a `txHash` (64-char hex), and the donation is queryable in the donor's history.
 2. NGO allocates funds to a student or program (`POST /api/ngo/allocations`) — the student's `walletBalance` is updated, a `txHash` is recorded, and the allocation appears in NGO's allocation history.
