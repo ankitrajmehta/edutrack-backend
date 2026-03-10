@@ -2,7 +2,7 @@
 
 **Created:** 2026-03-09
 **Phases:** 4
-**Requirements:** 63 v1 requirements, 0 unmapped
+**Requirements:** 69 v1 requirements, 0 unmapped
 
 ---
 
@@ -10,10 +10,10 @@
 
 | # | Phase | Goal | Requirements | Plans |
 |---|-------|------|--------------|-------|
-| 1 | Foundation | Working authenticated API skeleton in Docker | INFRA-01–05, AUTH-01–06, RBAC-01, BLKC-01–04 | 4 plans |
-| 2 | 5/5 | Complete   | 2026-03-09 | 5 plans |
-| 3 | Fund Flow | Complete   | 4/4 |
-| 4 | Demo Readiness | Complete   | 1/3 |
+| 1 | Foundation | Working authenticated API skeleton in Docker | INFRA-01–05, AUTH-01–06, RBAC-01, BLKC-01–04 | 5 plans |
+| 2 | Entity Management | Complete | 5/5 |
+| 3 | Fund Flow | Complete | 4/4 |
+| 4 | Demo Readiness | In Progress | 1/3 |
 
 ---
 
@@ -34,7 +34,7 @@ Plans:
 - [x] 01-02-PLAN.md — Async DB setup, all 12 ORM models, Alembic async migrations
 - [x] 01-03-PLAN.md — BlockchainService Protocol, MockSuiService, get_blockchain() DI
 - [x] 01-04-PLAN.md — Pydantic schemas (camelCase), JWT security, auth service, auth endpoints, RBAC guard
-- [ ] 01-05-PLAN.md — Gap closure: StarletteHTTPException handler + real Alembic DDL + Docker entrypoint
+- [x] 01-05-PLAN.md — Gap closure: StarletteHTTPException handler + real Alembic DDL + Docker entrypoint
 
 ### Success Criteria
 1. `docker compose up` starts the application and PostgreSQL with no manual intervention; `GET /healthz` returns HTTP 200.
@@ -95,13 +95,13 @@ Plans:
 
 **Requirements:** NGO-08, NGO-09, NGO-10, NGO-11, DONOR-04, DONOR-05, DONOR-06, SCHL-03, SCHL-04
 
-**Plans:** 4/1 complete
+**Plans:** 4/4 complete
 
 Plans:
 - [x] 03-01-PLAN.md — Allocation model, schemas, migration 0003
-- [ ] 03-02-PLAN.md — Donor service + routes (DONOR-04, DONOR-05, DONOR-06)
-- [ ] 03-03-PLAN.md — NGO invoice + allocation service + routes (NGO-08–11)
-- [ ] 03-04-PLAN.md — School invoice service + routes (SCHL-03, SCHL-04)
+- [x] 03-02-PLAN.md — Donor service + routes (DONOR-04, DONOR-05, DONOR-06)
+- [x] 03-03-PLAN.md — NGO invoice + allocation service + routes (NGO-08–11)
+- [x] 03-04-PLAN.md — School invoice service + routes (SCHL-03, SCHL-04)
 
 ### Success Criteria
 1. Donor makes a donation to an NGO, program, or named student (`POST /api/donor/donations`) — the response includes a `txHash` (64-char hex), and the donation is queryable in the donor's history.
@@ -152,7 +152,7 @@ Plans:
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 4/4 | Complete | 2026-03-09 |
+| 1. Foundation | 5/5 | Complete | 2026-03-09 |
 | 2. Entity Management | 5/5 | Complete | 2026-03-09 |
 | 3. Fund Flow | 4/4 | Complete | 2026-03-10 |
 | 4. Demo Readiness | 1/3 | In Progress | — |
