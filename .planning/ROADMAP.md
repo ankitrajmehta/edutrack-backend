@@ -119,11 +119,18 @@ Plans:
 
 ### Phase 4: Demo Readiness
 
-**Goal:** The full EduTrack frontend runs against the live API with zero mock.js fallbacks, the database seeds from an idempotent script matching mock.js exactly, and a syntactically valid Move smart contract is present for the grant demo narrative.
+**Goal:** The full OpenScholar frontend runs against the live API with zero mock.js fallbacks, the database seeds from an idempotent script matching mock.js exactly, and a syntactically valid Move smart contract is present for the grant demo narrative.
 
 **Depends on:** Phase 3
 
 **Requirements:** INFRA-06, PUBL-01, PUBL-02, PUBL-03, PUBL-04, BLKC-05, ACTV-02, APIC-03
+
+**Plans:** 3 plans
+
+Plans:
+- [ ] 04-01-PLAN.md — Public API endpoints (stats/activity/NGOs/programs) + idempotent seed script + entrypoint update
+- [ ] 04-02-PLAN.md — Move smart contract (Move.toml + scholarship.move) + .env.example verification
+- [ ] 04-03-PLAN.md — Frontend async migration: api.js + mock.js rewrite + main.js + all 14 pages
 
 ### Success Criteria
 1. `docker compose up` followed by `scripts/start.sh` (runs Alembic migrations + seed + uvicorn) starts the full stack; the seed script is idempotent — running it twice produces no duplicates and no errors.
