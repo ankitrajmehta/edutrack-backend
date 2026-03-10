@@ -13,7 +13,7 @@
 | 1 | Foundation | Working authenticated API skeleton in Docker | INFRA-01–05, AUTH-01–06, RBAC-01, BLKC-01–04 | 4 plans |
 | 2 | 5/5 | Complete   | 2026-03-09 | 5 plans |
 | 3 | Fund Flow | Every money movement triggers a blockchain tx with a recorded hash | NGO-08–11, DONOR-04–06, SCHL-03–04 | 1/4 |
-| 4 | Demo Readiness | Frontend runs against live API with no mock data, Move contract deployable | INFRA-06, PUBL-01–04, BLKC-05, ACTV-02, APIC-03 | TBD |
+| 4 | Demo Readiness | Frontend runs against live API with no mock data, Move contract deployable | INFRA-06, PUBL-01–04, BLKC-05, ACTV-02, APIC-03 | 3 plans |
 
 ---
 
@@ -155,7 +155,7 @@ Plans:
 | 1. Foundation | 4/4 | Complete | 2026-03-09 |
 | 2. Entity Management | 5/5 | Complete | 2026-03-09 |
 | 3. Fund Flow | 1/4 | In Progress | — |
-| 4. Demo Readiness | 0/? | Not Started | — |
+| 4. Demo Readiness | 0/3 | Not Started | — |
 
 ---
 *Roadmap created: 2026-03-09*
