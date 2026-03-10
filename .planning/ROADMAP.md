@@ -12,8 +12,8 @@
 |---|-------|------|--------------|-------|
 | 1 | Foundation | Working authenticated API skeleton in Docker | INFRA-01–05, AUTH-01–06, RBAC-01, BLKC-01–04 | 4 plans |
 | 2 | 5/5 | Complete   | 2026-03-09 | 5 plans |
-| 3 | Fund Flow | Every money movement triggers a blockchain tx with a recorded hash | NGO-08–11, DONOR-04–06, SCHL-03–04 | 1/4 |
-| 4 | Demo Readiness | Frontend runs against live API with no mock data, Move contract deployable | INFRA-06, PUBL-01–04, BLKC-05, ACTV-02, APIC-03 | 3 plans |
+| 3 | Fund Flow | Complete   | 4/4 |
+| 4 | Demo Readiness | Complete   | 1/3 |
 
 ---
 
@@ -128,8 +128,8 @@ Plans:
 **Plans:** 3 plans
 
 Plans:
-- [ ] 04-01-PLAN.md — Public API endpoints (stats/activity/NGOs/programs) + idempotent seed script + entrypoint update
-- [ ] 04-02-PLAN.md — Move smart contract (Move.toml + scholarship.move) + .env.example verification
+- [x] 04-01-PLAN.md — Public API endpoints (stats/activity/NGOs/programs) + idempotent seed script + entrypoint update
+- [x] 04-02-PLAN.md — Move smart contract (Move.toml + scholarship.move) + .env.example verification
 - [ ] 04-03-PLAN.md — Frontend async migration: api.js + mock.js rewrite + main.js + all 14 pages
 
 ### Success Criteria
@@ -154,8 +154,8 @@ Plans:
 |-------|----------------|--------|-----------|
 | 1. Foundation | 4/4 | Complete | 2026-03-09 |
 | 2. Entity Management | 5/5 | Complete | 2026-03-09 |
-| 3. Fund Flow | 1/4 | In Progress | — |
-| 4. Demo Readiness | 0/3 | Not Started | — |
+| 3. Fund Flow | 4/4 | Complete | 2026-03-10 |
+| 4. Demo Readiness | 1/3 | In Progress | — |
 
 ---
 *Roadmap created: 2026-03-09*

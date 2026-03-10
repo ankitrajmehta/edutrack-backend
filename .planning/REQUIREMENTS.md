@@ -12,7 +12,7 @@
 - [x] **INFRA-03**: Docker Compose runs app + PostgreSQL with a single `docker compose up`
 - [x] **INFRA-04**: `.env` / `config.py` (Pydantic BaseSettings) loads all required environment variables
 - [x] **INFRA-05**: Global exception handler returns all errors as `{detail, code, statusCode}` JSON — no unhandled 500s leak stack traces to clients
-- [ ] **INFRA-06**: Seed script (idempotent) populates DB with data matching mock.js exactly (same IDs, values, relationships)
+- [x] **INFRA-06**: Seed script (idempotent) populates DB with data matching mock.js exactly (same IDs, values, relationships)
 
 ### Authentication
 
@@ -88,7 +88,7 @@
 - [x] **BLKC-02**: Mock implementation returns realistic 64-char hex tx hashes and simulates async latency (0.1–0.4s)
 - [x] **BLKC-03**: All blockchain calls log structured output
 - [x] **BLKC-04**: Blockchain service injected via `Depends(get_blockchain)` — no direct imports of mock in callers
-- [ ] **BLKC-05**: Sui Move smart contract (`contracts/sources/scholarship.move`) is syntactically valid and deployable to testnet
+- [x] **BLKC-05**: Sui Move smart contract (`contracts/sources/scholarship.move`) is syntactically valid and deployable to testnet
 
 ### Activity Logging
 
