@@ -112,20 +112,45 @@ async def seed_users(db):
             "hashed_password": DEMO_HASH,
             "role": UserRole.donor,
         },
+        # ngo2–ngo5 each need their own user account (ngos.user_id is unique)
         {
             "id": 10,
+            "email": "ngo2@demo.openscholar.org",
+            "hashed_password": DEMO_HASH,
+            "role": UserRole.ngo,
+        },
+        {
+            "id": 11,
+            "email": "ngo3@demo.openscholar.org",
+            "hashed_password": DEMO_HASH,
+            "role": UserRole.ngo,
+        },
+        {
+            "id": 12,
+            "email": "ngo4@demo.openscholar.org",
+            "hashed_password": DEMO_HASH,
+            "role": UserRole.ngo,
+        },
+        {
+            "id": 13,
+            "email": "ngo5@demo.openscholar.org",
+            "hashed_password": DEMO_HASH,
+            "role": UserRole.ngo,
+        },
+        {
+            "id": 14,
             "email": "school2@demo.openscholar.org",
             "hashed_password": DEMO_HASH,
             "role": UserRole.school,
         },
         {
-            "id": 11,
+            "id": 15,
             "email": "school3@demo.openscholar.org",
             "hashed_password": DEMO_HASH,
             "role": UserRole.school,
         },
         {
-            "id": 12,
+            "id": 16,
             "email": "school4@demo.openscholar.org",
             "hashed_password": DEMO_HASH,
             "role": UserRole.school,
@@ -155,7 +180,7 @@ async def seed_ngos(db):
         },
         {
             "id": 2,
-            "user_id": 2,
+            "user_id": 10,
             "name": "EduHope International",
             "location": "Pokhara Nepal",
             "status": NGOStatus.verified,
@@ -169,7 +194,7 @@ async def seed_ngos(db):
         },
         {
             "id": 3,
-            "user_id": 2,
+            "user_id": 11,
             "name": "Children First Nepal",
             "location": "Lalitpur Nepal",
             "status": NGOStatus.pending,
@@ -183,7 +208,7 @@ async def seed_ngos(db):
         },
         {
             "id": 4,
-            "user_id": 2,
+            "user_id": 12,
             "name": "Nepal Education Alliance",
             "location": "Biratnagar Nepal",
             "status": NGOStatus.verified,
@@ -197,7 +222,7 @@ async def seed_ngos(db):
         },
         {
             "id": 5,
-            "user_id": 2,
+            "user_id": 13,
             "name": "Learn & Grow Trust",
             "location": "Chitwan Nepal",
             "status": NGOStatus.rejected,
@@ -229,7 +254,7 @@ async def seed_schools(db):
         },
         {
             "id": 2,
-            "user_id": 10,
+            "user_id": 14,
             "name": "Annapurna Secondary",
             "location": "Pokhara",
             "status": SchoolStatus.verified,
@@ -238,7 +263,7 @@ async def seed_schools(db):
         },
         {
             "id": 3,
-            "user_id": 11,
+            "user_id": 15,
             "name": "Koshi Valley School",
             "location": "Biratnagar",
             "status": SchoolStatus.verified,
@@ -247,7 +272,7 @@ async def seed_schools(db):
         },
         {
             "id": 4,
-            "user_id": 12,
+            "user_id": 16,
             "name": "Himalayan Model School",
             "location": "Dharan",
             "status": SchoolStatus.verified,
