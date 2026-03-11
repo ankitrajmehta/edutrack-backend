@@ -4,7 +4,7 @@
 // 
 // This module provides the on-chain representation of scholarship operations
 // for the OpenScholar platform. It mirrors the Python backend's blockchain
-// interface (BlockchainService Protocol) for the UNICEF grant demonstration.
+// interface (BlockchainService Protocol) for the grant demonstration.
 //
 // In production, these entry functions would interact with Sui coin objects
 // and transfer funds. For v1 demo, they are narrative placeholders.
