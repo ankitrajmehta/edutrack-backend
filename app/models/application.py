@@ -50,4 +50,7 @@ class ScholarshipApplication(Base):
         index=True,
     )
 
-    program = relationship("Program", back_populates="applications", lazy="joined")
+    # Relationships — lazy="raise_on_sql" prevents accidental N+1 cascade loading.
+    program = relationship(
+        "Program", back_populates="applications", lazy="raise_on_sql"
+    )

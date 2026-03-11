@@ -52,6 +52,7 @@ class Invoice(Base):
     supporting_doc = Column(String(500))
     tx_hash = Column(String(128), nullable=True)
 
-    school = relationship("School", back_populates="invoices", lazy="joined")
-    ngo = relationship("NGO", lazy="joined")
-    program = relationship("Program", back_populates="invoices", lazy="joined")
+    # Relationships — lazy="raise_on_sql" prevents accidental N+1 cascade loading.
+    school = relationship("School", back_populates="invoices", lazy="raise_on_sql")
+    ngo = relationship("NGO", lazy="raise_on_sql")
+    program = relationship("Program", back_populates="invoices", lazy="raise_on_sql")

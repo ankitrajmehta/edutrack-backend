@@ -33,13 +33,16 @@ class User(Base):
     is_active = Column(Boolean, default=True, nullable=False)
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
 
-    # Relationships
+    # Relationships — lazy="raise_on_sql" prevents accidental N+1 cascade loading.
+    # Use explicit selectinload()/joinedload() in queries that actually need these.
     refresh_tokens = relationship(
-        "RefreshToken", back_populates="user", lazy="selectin"
+        "RefreshToken", back_populates="user", lazy="raise_on_sql"
     )
-    activity_logs = relationship("ActivityLog", back_populates="actor", lazy="selectin")
+    activity_logs = relationship(
+        "ActivityLog", back_populates="actor", lazy="raise_on_sql"
+    )
     file_records = relationship(
-        "FileRecord", back_populates="uploader", lazy="selectin"
+        "FileRecord", back_populates="uploader", lazy="raise_on_sql"
     )
 
 

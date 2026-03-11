@@ -19,5 +19,6 @@ class Donor(Base):
     total_donated = Column(Float, default=0.0, nullable=False)
     donations_count = Column(Integer, default=0, nullable=False)
 
-    user = relationship("User", lazy="joined")
-    donations = relationship("Donation", back_populates="donor", lazy="selectin")
+    # Relationships — lazy="raise_on_sql" prevents accidental N+1 cascade loading.
+    user = relationship("User", lazy="raise_on_sql")
+    donations = relationship("Donation", back_populates="donor", lazy="raise_on_sql")

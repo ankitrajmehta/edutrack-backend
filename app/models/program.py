@@ -37,10 +37,11 @@ class Program(Base):
     start_date = Column(DateTime)
     end_date = Column(DateTime)
 
-    ngo = relationship("NGO", back_populates="programs", lazy="joined")
-    students = relationship("Student", back_populates="program", lazy="selectin")
-    donations = relationship("Donation", back_populates="program", lazy="selectin")
-    invoices = relationship("Invoice", back_populates="program", lazy="selectin")
+    # Relationships — lazy="raise_on_sql" prevents accidental N+1 cascade loading.
+    ngo = relationship("NGO", back_populates="programs", lazy="raise_on_sql")
+    students = relationship("Student", back_populates="program", lazy="raise_on_sql")
+    donations = relationship("Donation", back_populates="program", lazy="raise_on_sql")
+    invoices = relationship("Invoice", back_populates="program", lazy="raise_on_sql")
     applications = relationship(
-        "ScholarshipApplication", back_populates="program", lazy="selectin"
+        "ScholarshipApplication", back_populates="program", lazy="raise_on_sql"
     )

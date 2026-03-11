@@ -26,5 +26,6 @@ class School(Base):
     students_in_programs = Column(Integer, default=0, nullable=False)
     total_invoiced = Column(Float, default=0.0, nullable=False)
 
-    user = relationship("User", lazy="joined")
-    invoices = relationship("Invoice", back_populates="school", lazy="selectin")
+    # Relationships — lazy="raise_on_sql" prevents accidental N+1 cascade loading.
+    user = relationship("User", lazy="raise_on_sql")
+    invoices = relationship("Invoice", back_populates="school", lazy="raise_on_sql")

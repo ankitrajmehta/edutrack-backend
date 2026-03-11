@@ -48,7 +48,9 @@ class Donation(Base):
     message = Column(Text)
     tx_hash = Column(String(128))
 
-    donor = relationship("Donor", back_populates="donations", lazy="joined")
-    ngo = relationship("NGO", lazy="joined")
-    program = relationship("Program", back_populates="donations", lazy="joined")
-    student = relationship("Student", back_populates="donations", lazy="joined")
+    # Relationships — lazy="raise_on_sql" prevents accidental N+1 cascade loading.
+    # donor is loaded explicitly via joinedload() in get_donation_detail for ownership check.
+    donor = relationship("Donor", back_populates="donations", lazy="raise_on_sql")
+    ngo = relationship("NGO", lazy="raise_on_sql")
+    program = relationship("Program", back_populates="donations", lazy="raise_on_sql")
+    student = relationship("Student", back_populates="donations", lazy="raise_on_sql")

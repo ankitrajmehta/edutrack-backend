@@ -45,6 +45,7 @@ class NGO(Base):
     programs_count = Column(Integer, default=0, nullable=False)
     registered_date = Column(DateTime, default=datetime.utcnow, nullable=False)
 
-    user = relationship("User", lazy="joined")
-    programs = relationship("Program", back_populates="ngo", lazy="selectin")
-    students = relationship("Student", back_populates="ngo", lazy="selectin")
+    # Relationships — lazy="raise_on_sql" prevents accidental N+1 cascade loading.
+    user = relationship("User", lazy="raise_on_sql")
+    programs = relationship("Program", back_populates="ngo", lazy="raise_on_sql")
+    students = relationship("Student", back_populates="ngo", lazy="raise_on_sql")

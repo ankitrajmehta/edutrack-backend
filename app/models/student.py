@@ -38,6 +38,7 @@ class Student(Base):
     total_received = Column(Float, default=0.0, nullable=False)
     status = Column(SAEnum(StudentStatus), default=StudentStatus.active, nullable=False)
 
-    ngo = relationship("NGO", back_populates="students", lazy="joined")
-    program = relationship("Program", back_populates="students", lazy="joined")
-    donations = relationship("Donation", back_populates="student", lazy="selectin")
+    # Relationships — lazy="raise_on_sql" prevents accidental N+1 cascade loading.
+    ngo = relationship("NGO", back_populates="students", lazy="raise_on_sql")
+    program = relationship("Program", back_populates="students", lazy="raise_on_sql")
+    donations = relationship("Donation", back_populates="student", lazy="raise_on_sql")

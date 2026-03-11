@@ -34,4 +34,5 @@ class ActivityLog(Base):
     )
     color = Column(String(50), nullable=True)
 
-    actor = relationship("User", back_populates="activity_logs", lazy="joined")
+    # Relationships — lazy="raise_on_sql" prevents accidental N+1 cascade loading.
+    actor = relationship("User", back_populates="activity_logs", lazy="raise_on_sql")

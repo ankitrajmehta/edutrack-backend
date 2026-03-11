@@ -17,4 +17,5 @@ class FileRecord(Base):
     )
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
 
-    uploader = relationship("User", back_populates="file_records", lazy="joined")
+    # Relationships — lazy="raise_on_sql" prevents accidental N+1 cascade loading.
+    uploader = relationship("User", back_populates="file_records", lazy="raise_on_sql")

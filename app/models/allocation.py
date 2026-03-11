@@ -32,6 +32,7 @@ class Allocation(Base):
     date = Column(DateTime, default=datetime.utcnow, nullable=False)
     tx_hash = Column(String(128), nullable=True)
 
-    ngo = relationship("NGO", lazy="joined")
-    student = relationship("Student", lazy="joined")
-    program = relationship("Program", lazy="joined")
+    # Relationships — lazy="raise_on_sql" prevents accidental N+1 cascade loading.
+    ngo = relationship("NGO", lazy="raise_on_sql")
+    student = relationship("Student", lazy="raise_on_sql")
+    program = relationship("Program", lazy="raise_on_sql")
